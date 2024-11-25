@@ -1,0 +1,75 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://cdn.discordapp.com/attachments/1300646299267502203/1310695711456886854/94cf3c88c7c2751e62c8eaa0b320d8c5.jpg?ex=67462801&is=6744d681&hm=2cf583b649e2c149db0de177dda9975eab6607e4098d7c3c54c742aca10f4320&'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image stay fixed during scrolling */
+}
+
+/* Header */
+header {
+    background-color: #0000FF;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Section Styling */
+.section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Question Styling */
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+/* Button Styling */
+button {
+    background-color: #0000FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

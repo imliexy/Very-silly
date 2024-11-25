@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Im too old for this</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>peak ass site bc i dont have a pc</h1>
+    </header>
+    <main>
+        <div class="section" id="quiz-section">
+            <!-- Question and Options will be dynamically inserted here -->
+        </div>
+    </main>
+    <footer>
+        <p>ily.</p>
+    </footer>
+
+    <script>
+        // Define the questions and images
+        const quizData = [
+            {
+                question: "Do you know how much you brighten my days?",
+                options: [
+                    { text: "Ofc i do", correct: false },
+                    { text: "Yes", correct: false },
+                    { text: "No i dont", correct: true },
+                    { text: "Obviously", correct: false }
+                ],
+                image: "" // No image for the first question
+            },
+            {
+                question: "lmfao u actually dont know shit, this mah day with ya:",
+                options: [
+                    { text: "OFC I DONT KNOW SHI", correct: true },
+                    { text: "I DO STOP MAKING ME LIE THROUGH ANSWERS", correct: false },
+                    { text: "STOP THIS I FUCKING KNOW BRUH", correct: false },
+                    { text: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", correct: false }
+                ],
+                image: "https://cdn.discordapp.com/attachments/1304976220433285130/1310668268549177414/Picsart_24-11-25_14-36-56-522.jpg?ex=67460e72&is=6744bcf2&hm=d82ea8caf9c5518ffd08c114fa1a7adf609c6f4e41a5dd3d5040f911204e1047&"
+            
+            },
+            {
+               question: "hehe, this mah day without ya bc u dont know:",
+               options: [
+                 { text: "yeah but I KNOW", correct: false },
+                 { text: "I can't with this bruh everything that i want to answer is incorrect", correct: true },
+                 { text: "fym nuh uh ofc i know", correct: false },
+                 { text: "bro", correct: false }
+                 ],
+               image: "https://cdn.discordapp.com/attachments/1304976220433285130/1310672008249475132/Picsart_24-11-25_15-22-24-679.jpg?ex=674611ed&is=6744c06d&hm=5f76240b07cc729124717b7cb7db6619f79d46b07a75caac1f0a89c438588051&" // Optional
+             }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        // Function to display a question
+        function displayQuestion() {
+            const quizSection = document.getElementById("quiz-section");
+            const currentQuestion = quizData[currentQuestionIndex];
+
+            // Clear the existing content
+            quizSection.innerHTML = "";
+
+            // Add the question text
+            const questionElement = document.createElement("p");
+            questionElement.textContent = currentQuestion.question;
+            questionElement.className = "question";
+            quizSection.appendChild(questionElement);
+
+            // Add the image (if any)
+            if (currentQuestion.image) {
+                const imgElement = document.createElement("img");
+                imgElement.src = currentQuestion.image;
+                imgElement.alt = "If this doesn't show up, say Bewbies in my dms without any context";
+                quizSection.appendChild(imgElement);
+            }
+
+            // Add the options
+            currentQuestion.options.forEach((option, index) => {
+                const label = document.createElement("label");
+                label.innerHTML = `
+                    <input type="radio" name="answer" value="${option.correct}"> ${option.text}
+                `;
+                quizSection.appendChild(label);
+                quizSection.appendChild(document.createElement("br"));
+            });
+
+            // Add the submit button
+            const button = document.createElement("button");
+            button.textContent = "Submit";
+            button.onclick = checkAnswer;
+            quizSection.appendChild(button);
+        }
+
+        // Function to check the selected answer
+        function checkAnswer() {
+            const options = document.getElementsByName("answer");
+            let isCorrect = false;
+            for (let option of options) {
+                if (option.checked) {
+                    isCorrect = option.value === "true";
+                    break;
+                }
+            }
+
+            if (isCorrect) {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) {
+                    displayQuestion();
+                } else {
+                    showCompletionMessage();
+                }
+            } else {
+                alert("nuh uh dumbass lmfao");
+            }
+        }
+
+// Function to show a completion message with an image
+function showCompletionMessage() {
+  const quizSection = document.getElementById("quiz-section");
+
+  // Clear the existing content
+  quizSection.innerHTML = "";
+
+  // Add the congratulatory message
+  const message = document.createElement("p");
+  message.textContent = "congrats thats all lmfao im too old for this.";
+  quizSection.appendChild(message);
+
+  // Add the image
+  const imgElement = document.createElement("img");
+  imgElement.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9_p_TnOUZSvP6tf_Gj_r_t2vqWPMyhBkfG33V-9bPHXsZ5mijOwxAG1o&s=10"; // Replace with your image URL
+  imgElement.alt = "Show cat pls";
+  quizSection.appendChild(imgElement);
+}
+        // Initialize the quiz
+        displayQuestion();
+    </script>
+</body>
+</html>
